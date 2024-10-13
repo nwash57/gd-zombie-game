@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=4 uid="uid://c664lf1xddja3"]
 
-[ext_resource type="Texture2D" uid="uid://b3bkmpsbtuksd" path="res://assets/models/guns/ak47_0.png" id="1_o1qoy"]
-[ext_resource type="Texture2D" uid="uid://7bhuowmp7lds" path="res://assets/models/guns/ak47_1.png" id="2_v3ct1"]
+[ext_resource type="Texture2D" uid="uid://bq62i3uo3r27b" path="res://assets/models/guns/ak47_0.png" id="1_o1qoy"]
+[ext_resource type="Texture2D" uid="uid://c343muoiw8k08" path="res://assets/models/guns/ak47_1.png" id="2_v3ct1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d632y"]
 resource_name = "fer"

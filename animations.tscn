@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbd2wfpnyj0mo"]
+
+[ext_resource type="PackedScene" uid="uid://c4wp3xqjlmc6m" path="res://assets/kenney_animated-characters-1/Animations/idle.fbx" id="1_wqmll"]
+[ext_resource type="PackedScene" uid="uid://48wpdhjip43m" path="res://assets/kenney_animated-characters-1/Animations/jump.fbx" id="2_nalws"]
+[ext_resource type="PackedScene" uid="uid://defhma3on7cp6" path="res://assets/kenney_animated-characters-1/Animations/run.fbx" id="3_bb237"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="idle" parent="." instance=ExtResource("1_wqmll")]
+
+[node name="jump" parent="." instance=ExtResource("2_nalws")]
+
+[node name="run" parent="." instance=ExtResource("3_bb237")]

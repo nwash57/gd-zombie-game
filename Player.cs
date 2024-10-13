@@ -24,7 +24,7 @@ public partial class Player : CharacterBody3D
 	public override void _Ready()
 	{
 		Input.SetMouseMode(Input.MouseModeEnum.Captured);
-		GetNode<Camera3D>("Camera3D").Current = true;
+		GetNode<Camera3D>("Head/Camera3D").Current = true;
 	}
 
 	public override void _UnhandledInput(InputEvent @event)
@@ -42,7 +42,10 @@ public partial class Player : CharacterBody3D
 		}
 		else if (@event is InputEventMouseButton mouseButton)
 		{
-
+			if (@event.IsActionPressed("shoot"))
+			{
+				GD.Print("shoot");
+			}
 		}
 	}
 
@@ -84,29 +87,8 @@ public partial class Player : CharacterBody3D
 
 		if (CameraRay.IsColliding())
 		{
-			var aimCollision = CameraRay.GetCollisionPoint();
-			GD.Print($"aim collision point: {aimCollision}");
-			var weaponDir = (Weapon.GlobalPosition - aimCollision).Normalized();
-			GD.Print($"weapon dir: {weaponDir}");
-			// var rotation = new Vector3(
-			// 	// (float)Mathf.LerpAngle(Rotation.X, Mathf.Atan2(weaponDir.Y, weaponDir.Z), delta),
-			// 	Weapon.Rotation.X,
-			// 	(float)Mathf.LerpAngle(Rotation.Y, , delta),
-			// 	Weapon.Rotation.Z);
-			var angleToCollision = Weapon.Rotation.AngleTo(aimCollision);
-			var rotation = new Vector3(
-				Mathf.LerpAngle(Weapon.Rotation.X, angleToCollision, (float)delta),
-				Mathf.LerpAngle((float)Weapon.Rotation.Y, (float)angleToCollision, (float)delta),
-				Weapon.Rotation.Z);
-			Weapon.Rotation = rotation;
-		}
-		else
-		{
-			GD.Print($"Player Rotation: {Rotation}");
-			var pointRot = new Vector3(Camera.Rotation.X, Rotation.Y, Camera.Rotation.Z);
-			var targetPosition = GlobalPosition + (pointRot * 20f);
-			GD.Print($"Target Position: {targetPosition}");
-			Weapon.LookAt(targetPosition);
+			var collisionPoint = CameraRay.GetCollisionPoint();
+			Weapon.LookAt(collisionPoint);
 		}
 
 
