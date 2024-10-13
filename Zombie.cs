@@ -39,8 +39,8 @@ public partial class Zombie : CharacterBody3D
 		GD.Print($"next pos: {nextPos}");
 		var newVelocity = GlobalPosition.DirectionTo(nextPos) * MovementSpeed;
 		GD.Print($"new velocity: {newVelocity}");
-		// NavAgent.Velocity = newVelocity;
-		Velocity = newVelocity;
+		NavAgent.Velocity = newVelocity;
+		// Velocity = newVelocity;
 		MoveAndSlide();
 	}
 }
