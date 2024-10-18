@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://brlngx26wcci6"]
+
+[ext_resource type="Script" path="res://Bullet.cs" id="1_0ch7q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2aek3"]
+albedo_color = Color(0.691164, 0.396422, 7.70092e-07, 1)
+metallic = 1.0
+roughness = 0.2
+
+[node name="Bullet" type="CSGBox3D"]
+use_collision = true
+collision_layer = 0
+collision_mask = 2
+size = Vector3(0.01, 0.01, 0.02)
+material = SubResource("StandardMaterial3D_2aek3")
+script = ExtResource("1_0ch7q")
+
+[node name="BackMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+
+[node name="FrontMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0100895)
+
+[node name="HitRay" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.108474)
+target_position = Vector3(0, 0, -0.09)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="Debug" type="CSGBox3D" parent="."]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Debug2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.379026, 0.432073, -0.818323, -0.769507, 0.638345, -0.0193706, 0.514003, 0.637047, 0.574432, -0.000890806, 0, -0.0335179)
+size = Vector3(0.06, 0.06, 0.06)

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class Player : CharacterBody3D
 {
@@ -14,12 +15,15 @@ public partial class Player : CharacterBody3D
 	// public Node3D Head => GetNode<Node3D>("Head");
 	public Camera3D Camera => GetNode<Camera3D>("Head/Camera3D");
 	public Node3D Weapon => GetNode<Node3D>("Weapon");
+	public RayCast3D WeaponRay => Weapon.GetChildren().First().GetNode<RayCast3D>("WeaponRay");
 	public RayCast3D CameraRay => Camera.GetNode<RayCast3D>("RayCast3D");
 
 	public bool IsSprinting => Input.IsActionPressed("sprint");
 	public float SprintMultiplier = 1.5f;
 
 	public float WeaponSpeed = 1.0f;
+
+	[Export] public PackedScene BulletScene;
 
 	public override void _Ready()
 	{
@@ -44,7 +48,11 @@ public partial class Player : CharacterBody3D
 		{
 			if (@event.IsActionPressed("shoot"))
 			{
-				GD.Print("shoot");
+				var bullet = BulletScene.Instantiate() as Bullet;
+				GetTree().Root.GetNode("World").AddChild(bullet);
+				bullet.GlobalPosition = WeaponRay.GlobalPosition;
+
+				bullet.LookAt(WeaponRay.ToGlobal(WeaponRay.TargetPosition));
 			}
 		}
 	}

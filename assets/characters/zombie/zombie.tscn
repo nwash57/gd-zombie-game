@@ -1,0 +1,110 @@
+[gd_scene load_steps=5 format=3 uid="uid://v6bh3m4a5pii"]
+
+[ext_resource type="Script" path="res://Zombie.cs" id="1_ictmg"]
+[ext_resource type="PackedScene" uid="uid://dmtdkn64yrqd0" path="res://assets/characters/ybot/ybot.tscn" id="2_jnpiw"]
+[ext_resource type="Script" path="res://assets/characters/zombie/Damageable.cs" id="3_uc4qh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k0lmw"]
+height = 1.8
+
+[node name="Zombie" type="CharacterBody3D"]
+script = ExtResource("1_ictmg")
+
+[node name="ybot" parent="." instance=ExtResource("2_jnpiw")]
+
+[node name="HeadBoneAttachment3D" parent="ybot/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, -8.78095e-05, 4.96453e-07, -4.96456e-07, -2.61152e-08, 1, -8.78095e-05, -1, -4.1482e-08, -0.00448175, -0.34075, -160.075)
+
+[node name="Area3D" parent="ybot/Armature/Skeleton3D/HeadBoneAttachment3D" index="0"]
+script = ExtResource("3_uc4qh")
+DamageMultiplier = 2.0
+
+[node name="SpineBoneAttachment3D" parent="ybot/Armature/Skeleton3D" index="3"]
+transform = Transform3D(1, -9.904e-05, -1.41554e-05, 2.04373e-06, -0.121236, 0.992624, -0.000100026, -0.992624, -0.121236, -4.11861e-05, -1.22728, -109.715)
+
+[node name="Area3D" parent="ybot/Armature/Skeleton3D/SpineBoneAttachment3D" index="0"]
+script = ExtResource("3_uc4qh")
+
+[node name="LeftUpperLegBoneAttachment3D" parent="ybot/Armature/Skeleton3D" index="4"]
+transform = Transform3D(-0.999982, 0.00602687, 7.66533e-05, 2.29144e-07, -0.0126795, 0.99992, 0.00602736, 0.999901, 0.0126793, 9.12442, -0.0553261, -93.1355)
+
+[node name="Area3D" parent="ybot/Armature/Skeleton3D/LeftUpperLegBoneAttachment3D" index="0"]
+script = ExtResource("3_uc4qh")
+DamageMultiplier = 0.8
+
+[node name="LeftFootBoneAttachment3D" parent="ybot/Armature/Skeleton3D" index="5"]
+transform = Transform3D(-0.99866, 0.0237593, -0.0459727, -1.28406e-06, 0.888361, 0.459145, 0.0517494, 0.45853, -0.887171, 9.12445, -2.63006, -10.4922)
+
+[node name="Area3D" parent="ybot/Armature/Skeleton3D/LeftFootBoneAttachment3D" index="0"]
+transform = Transform3D(0.999643, -0.0261038, -0.0057316, 0.0197742, 0.866693, -0.498449, 0.0179789, 0.498157, 0.8669, 0.168447, 9.29784, 1.14609)
+script = ExtResource("3_uc4qh")
+DamageMultiplier = 0.5
+
+[node name="RightFootBoneAttachment3D" parent="ybot/Armature/Skeleton3D" index="6"]
+transform = Transform3D(-0.99866, -0.0237594, 0.0459723, -1.5134e-08, 0.88837, 0.459128, -0.051749, 0.458513, -0.88718, -9.12449, -2.63015, -10.4922)
+
+[node name="Area3D" parent="ybot/Armature/Skeleton3D/RightFootBoneAttachment3D" index="0"]
+transform = Transform3D(0.999777, 0.0203165, 0.00566735, -0.0163743, 0.916974, -0.398609, -0.0132951, 0.398428, 0.917103, -0.166889, 8.71666, 0.879665)
+script = ExtResource("3_uc4qh")
+DamageMultiplier = 0.5
+
+[node name="LeftLowerLegBoneAttachment3D" parent="ybot/Armature/Skeleton3D" index="7"]
+transform = Transform3D(-0.999983, -0.00581158, -0.000284934, -2.25322e-07, -0.0489312, 0.998802, -0.00581856, 0.998785, 0.0489303, 9.36911, -0.570109, -52.5401)
+
+[node name="Area3D" parent="ybot/Armature/Skeleton3D/LeftLowerLegBoneAttachment3D" index="0"]
+script = ExtResource("3_uc4qh")
+DamageMultiplier = 0.8
+
+[node name="RightLowerLegBoneAttachment3D" parent="ybot/Armature/Skeleton3D" index="8"]
+transform = Transform3D(-0.999983, 0.00581179, 0.000284953, 1.52897e-07, -0.048945, 0.998801, 0.00581877, 0.998785, 0.0489442, -9.36916, -0.569617, -52.54)
+
+[node name="Area3D" parent="ybot/Armature/Skeleton3D/RightLowerLegBoneAttachment3D" index="0"]
+script = ExtResource("3_uc4qh")
+DamageMultiplier = 0.8
+
+[node name="RightUpperLegBoneAttachment3D" parent="ybot/Armature/Skeleton3D" index="9"]
+transform = Transform3D(-0.999982, -0.0060267, -7.69429e-05, -5.93946e-07, -0.0126674, 0.99992, -0.00602719, 0.999902, 0.0126672, -9.12448, -0.0553266, -93.1355)
+
+[node name="Area3D" parent="ybot/Armature/Skeleton3D/RightUpperLegBoneAttachment3D" index="0"]
+script = ExtResource("3_uc4qh")
+DamageMultiplier = 0.8
+
+[node name="RightUpperArmBoneAttachment3D" parent="ybot/Armature/Skeleton3D" index="10"]
+transform = Transform3D(2.59943e-06, -1, -1.04308e-07, 1, 2.63823e-06, -2.95065e-07, 2.25001e-07, -1.11759e-08, 1, -18.7639, -6.1714, -143.565)
+
+[node name="Area3D" parent="ybot/Armature/Skeleton3D/RightUpperArmBoneAttachment3D" index="0"]
+script = ExtResource("3_uc4qh")
+DamageMultiplier = 0.7
+
+[node name="RightForeArmBoneAttachment3D" parent="ybot/Armature/Skeleton3D" index="11"]
+transform = Transform3D(2.54096e-06, -1, 3.44662e-07, 1, 2.57977e-06, -2.55995e-07, 1.85929e-07, 4.37794e-07, 1, -46.1685, -6.17133, -143.565)
+
+[node name="Area3D" parent="ybot/Armature/Skeleton3D/RightForeArmBoneAttachment3D" index="0"]
+script = ExtResource("3_uc4qh")
+DamageMultiplier = 0.7
+
+[node name="LeftForeArmBoneAttachment3D" parent="ybot/Armature/Skeleton3D" index="12"]
+transform = Transform3D(-4.1763e-06, 1, 6.41987e-07, -1, -4.10797e-06, 4.74481e-07, 5.23045e-07, -6.04734e-07, 1, 46.1625, -6.17159, -143.566)
+
+[node name="Area3D" parent="ybot/Armature/Skeleton3D/LeftForeArmBoneAttachment3D" index="0"]
+script = ExtResource("3_uc4qh")
+DamageMultiplier = 0.7
+
+[node name="LeftUpperArmBoneAttachment3D" parent="ybot/Armature/Skeleton3D" index="13"]
+transform = Transform3D(-4.15296e-06, 1, 1.88127e-06, -1, -4.08462e-06, 4.90789e-07, 5.39359e-07, -1.84402e-06, 1, 18.7578, -6.17147, -143.566)
+
+[node name="Area3D" parent="ybot/Armature/Skeleton3D/LeftUpperArmBoneAttachment3D" index="0"]
+script = ExtResource("3_uc4qh")
+DamageMultiplier = 0.7
+
+[node name="NavigationAgent3D" parent="ybot" index="2"]
+path_height_offset = -10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.905732, 0)
+shape = SubResource("CapsuleShape3D_k0lmw")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = 0.16
+
+[editable path="ybot"]
